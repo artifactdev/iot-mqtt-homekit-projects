@@ -4,6 +4,8 @@ The goal of this project was to have several sensors which can be integrated int
 
 For this I have running a pine64 Board (you can use a raspberry pi) with Linux where Homebride is installed and [mosquitto](https://mosquitto.org/download/) as MQTT broker for the network communication.
 
+The costs for the required electronic parts of one box are under 10 €/$.
+
 ## Features
 
 - Motionsensor
