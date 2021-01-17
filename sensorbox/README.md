@@ -30,7 +30,7 @@ The costs for the required electronic parts of one box are under 10 €/$.
 - NodeMCU Board with ESP8266 ([Amazon-Link](https://www.amazon.de/gp/product/B074Q2WM1Y))
 - LUX Sensor BH1750 ([Amazon-Link](https://www.amazon.de/gp/product/B07VF15XJJ))
 - Motion Sensor AM312 ([Amazon-Link](https://www.amazon.de/gp/product/B08931TTTN))
-- Temperature/Humanity Sensor AM3202/DHT22 ([Amazon-Link](https://www.amazon.de/gp/product/B08931TTTN))
+- Temperature/Humanity Sensor AM3202/DHT22 ([Amazon-Link](https://www.amazon.de/MakerHawk-Digitales-Temperatur-Feuchtigkeitsmesssensormodul-Arduino/))
 - Jumper cables / cables ([Amazon-Link](https://www.amazon.de/AZDelivery-Jumper-Arduino-Raspberry-Breadboard/dp/B074P726ZR/))
 - Power Supply 5V Micro USB
 
