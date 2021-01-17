@@ -30,6 +30,14 @@ The goal of this project was to have several sensors which can be integrated int
 ---
 ## Scheme
 ---
-![](https://pandao.github.io/editor.md/examples/images/4.jpg)
+![](https://github.com/artifactdev/iot-mqtt-homekit-projects/raw/main/sensorbox/assets/sensorbox-scheme.jpg)
 
 > This scheme is important for the software settings  which are described on the next section
+
+[Download Fritzing File](https://github.com/artifactdev/iot-mqtt-homekit-projects/raw/main/sensorbox/assets/sensorbox.fzz)
+
+---
+## Software
+---
+
+As firmware I flashed [Tasmota](https://tasmota.github.io/docs/) which provides the functionality we need without the need of writing our own firmware.
