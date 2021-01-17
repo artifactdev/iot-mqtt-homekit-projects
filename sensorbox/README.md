@@ -92,7 +92,7 @@ Navigate back to the main menu and open the console.
 
 We need to setup some rules to get the sensors working and communicating like we want it to implement them into homebrew.
 
-We need to set a rule for the PIR sensor so it publishes a specific event via mqtt
+>We need to set a rule for the PIR sensor so it publishes a specific event via mqtt
 
 ```
 SwitchMode1 14
@@ -101,11 +101,93 @@ Rule1 on Switch1#state=1 do publish  %topic%/stat/PIR1 ON endon on Switch1#state
 Rule1 1
 ```
 
-We need to set a longer time to measure the light intensity and get more granular lux values
+>We need to set a longer time to measure the light intensity and get more granular lux values
 
 ```
 Rule2  ON System#Boot DO Bh1750MTime1 254 ENDON
 Rule2 1
 ```
 
+## Setup the sensorbox in homebridge
 
+To setup our sensorbox on homebridge to integrate it into our homekit environment and use it for automations and so on, we need to install the [Homebridge MQTT-Thing Plugin](https://github.com/arachnetech/homebridge-mqttthing#readme) in homebridge ui.
+Once the plugin is installed this is how the configurations accesories section has to look like:
+> fill in your MWTT data in the areas marked with <>
+
+``` json
+{
+    "bridge": {
+    },
+    "accessories": [
+        {
+            "accessory": "mqttthing",
+            "type": "humiditySensor",
+            "name": "Sensorbox 1 Humanity",
+            "url": "mqtt://<MQTT-BROKER-IP>:<MQTT-BROKER-PORT>",
+            "username": "<MQTT-BROKER-USER>",
+            "password": "<MQTT-BROKER-PASSWORD>",
+            "caption": "Sensorbox 1 Humanity",
+            "topics": {
+                "getCurrentRelativeHumidity": {
+                    "topic": "sensorbox1/tele/SENSOR",
+                    "apply": "return JSON.parse(message).AM2301.Humidity;"
+                },
+                "getStatusActive": "sensorbox1/stat/POWER",
+                "getStatusFault": "sensorbox1/tele/STATE"
+            },
+            "history": true
+        },
+        {
+          "accessory": "mqttthing",
+          "type": "temperatureSensor",
+          "name": "Sensorbox 1 Temperature",
+          "url": "mqtt://<MQTT-BROKER-IP>:<MQTT-BROKER-PORT>",
+          "username": "<MQTT-BROKER-USER>",
+          "password": "<MQTT-BROKER-PASSWORD>",
+          "caption": "Sensorbox 1 Temperature",
+          "topics": {
+            "getCurrentTemperature": {
+              "topic": "sensorbox1/tele/SENSOR",
+              "apply": "return JSON.parse(message).AM2301.Temperature;"
+            }
+          }
+        },
+        {
+          "accessory": "mqttthing",
+          "type": "lightSensor",
+          "name": "Sensorbox 1 Lightsensor",
+          "url": "mqtt://<MQTT-BROKER-IP>:<MQTT-BROKER-PORT>",
+          "username": "<MQTT-BROKER-USER>",
+          "password": "<MQTT-BROKER-PASSWORD>",
+          "caption": "Sensorbox 1 Lightsensor",
+          "topics": {
+            "getCurrentAmbientLightLevel": {
+              "topic": "sensorbox1/tele/SENSOR",
+              "apply": "return JSON.parse(message).BH1750.Illuminance;"
+            }
+          }
+        },
+        {
+          "accessory": "mqttthing",
+          "type": "motionSensor",
+          "name": "Sensorbox 1 Motionsensor",
+          "url": "mqtt://<MQTT-BROKER-IP>:<MQTT-BROKER-PORT>",
+          "username": "<MQTT-BROKER-USER>",
+          "password": "<MQTT-BROKER-PASSWORD>",
+          "caption": "Sensorbox 1 Motionsensor",
+          "topics": {
+            "getMotionDetected": "sensorbox1/stat/PIR1"
+          },
+          "onValue": "ON",
+          "offValue": "OFF",
+          "turnOffAfterms": "120000",
+          "history": true
+        }
+    ],
+    "platforms": []
+}
+```
+
+> we need to setup the sensors seperately for homekit.
+
+Once added you need to restart homebridge and if the sensorbox is running it should appear in homebridge and therefore in HomeKit aswell.
