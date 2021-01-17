@@ -2,6 +2,8 @@
 
 The goal of this project was to have several sensors which can be integrated into HomeKit through [homebridge](https://homebridge.io/).
 
+For this I have running a pine64 Board (you can use a raspberry pi) with Linux where Homebride is installed and [mosquitto](https://mosquitto.org/download/) as MQTT broker for the network communication.
+
 ## Features
 
 - Motionsensor
@@ -12,7 +14,7 @@ The goal of this project was to have several sensors which can be integrated int
 
 ----
 ## Parts
-----
+
 ### Mandatory
 
 - NodeMCU Board with ESP8266 ([Amazon-Link](https://www.amazon.de/gp/product/B074Q2WM1Y))
@@ -29,7 +31,7 @@ The goal of this project was to have several sensors which can be integrated int
 
 ---
 ## Scheme
----
+
 ![](https://github.com/artifactdev/iot-mqtt-homekit-projects/raw/main/sensorbox/assets/sensorbox-scheme.jpg)
 
 > This scheme is important for the software settings  which are described on the next section
@@ -38,6 +40,18 @@ The goal of this project was to have several sensors which can be integrated int
 
 ---
 ## Software
----
+
 
 As firmware I flashed [Tasmota](https://tasmota.github.io/docs/) which provides the functionality we need without the need of writing our own firmware.
+
+Here you can download the [tasmota-sensors.bin firmware](http://ota.tasmota.com/tasmota/release/tasmota-sensors.bin) which is needed to get all sensors of this project working. If you flash another version of tasmota its most likely that the BH1750 and maybe the AM312 won't work.
+
+### Flash the firmware
+
+You can flash the firmware via usb to the nodeMCU. I used the [nodeMCU.pyFlasher](https://github.com/marcelstoer/nodemcu-pyflasher) to flash the nodeMCU with the downlaoded firmware.
+
+### Initial Setup
+
+For the initial setup of tasmota [they provide a detailed documentation](https://tasmota.github.io/docs/Getting-Started/#initial-configuration). Please follow their instructions to setup your wifi and mqtt broker.
+
+### setup
