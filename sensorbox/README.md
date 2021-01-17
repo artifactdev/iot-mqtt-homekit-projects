@@ -32,7 +32,7 @@ For this I have running a pine64 Board (you can use a raspberry pi) with Linux w
 ---
 ## Scheme
 
-![](https://github.com/artifactdev/iot-mqtt-homekit-projects/raw/main/sensorbox/assets/sensorbox-scheme.jpg)
+[![](https://github.com/artifactdev/iot-mqtt-homekit-projects/raw/main/sensorbox/assets/sensorbox-scheme.jpg)](https://github.com/artifactdev/iot-mqtt-homekit-projects/raw/main/sensorbox/assets/sensorbox-scheme.jpg)
 
 > This scheme is important for the software settings  which are described on the next section
 
@@ -54,4 +54,58 @@ You can flash the firmware via usb to the nodeMCU. I used the [nodeMCU.pyFlasher
 
 For the initial setup of tasmota [they provide a detailed documentation](https://tasmota.github.io/docs/Getting-Started/#initial-configuration). Please follow their instructions to setup your wifi and mqtt broker.
 
-### setup
+### Setup Tasmota Sensorbox
+
+1. You need to click on configuration
+
+[![](https://github.com/artifactdev/iot-mqtt-homekit-projects/raw/main/sensorbox/assets/tasmota-start.png)](https://github.com/artifactdev/iot-mqtt-homekit-projects/raw/main/sensorbox/assets/tasmota-start.png)
+
+2. On the configurationscreen click configure module to setup the sensors
+
+[![](https://github.com/artifactdev/iot-mqtt-homekit-projects/raw/main/sensorbox/assets/tasmota-configuration.png)](https://github.com/artifactdev/iot-mqtt-homekit-projects/raw/main/sensorbox/assets/tasmota-configuration.png)
+
+2. On the modulconfiguration we have to setup the sensors which
+
+[![](https://github.com/artifactdev/iot-mqtt-homekit-projects/raw/main/sensorbox/assets/tasmota-configuration-module.png)](https://github.com/artifactdev/iot-mqtt-homekit-projects/raw/main/sensorbox/assets/tasmota-configuration-module.png)
+
+> this is how the configuration needs to look like when you setted up the sensors on the GPIO Pins like shown in the scheme section
+
+3. Setup your MQTT broker for the mqtt network communication
+
+[![](https://github.com/artifactdev/iot-mqtt-homekit-projects/raw/main/sensorbox/assets/tasmota-configuration-mqtt.png)](https://github.com/artifactdev/iot-mqtt-homekit-projects/raw/main/sensorbox/assets/tasmota-configuration-mqtt.png)
+
+| Entry | Description |
+| ------ | ----------- |
+| Host   | The IP of your mqtt broker |
+| Port | The Port of your mqtt broker |
+| Client    | This is a generic client > you can leave that as it is |
+| User    | the user which is allowed to send date to the mqtt broker |
+| Password    | the mqtt users password |
+| Topic    | The Topic of the mqttClient -> in this case its sensorbox1 (Other clients can subscribe to the topic to get its values) |
+| Full Topic    | The full topic which is send to the mqtt broker e.g. 'sensorbox1/sensors/' |
+
+4. Additional enhancements
+
+Navigate back to the main menu and open the console.
+
+[![](https://github.com/artifactdev/iot-mqtt-homekit-projects/raw/main/sensorbox/assets/tasmota-console.png)](https://github.com/artifactdev/iot-mqtt-homekit-projects/raw/main/sensorbox/assets/tasmota-console.png)
+
+We need to setup some rules to get the sensors working and communicating like we want it to implement them into homebrew.
+
+We need to set a rule for the PIR sensor so it publishes a specific event via mqtt
+
+```
+SwitchMode1 14
+SwitchTopic 0
+Rule1 on Switch1#state=1 do publish  %topic%/stat/PIR1 ON endon on Switch1#state=0 do Publish  %topic%/stat/PIR1 OFF endon
+Rule1 1
+```
+
+We need to set a longer time to measure the light intensity and get more granular lux values
+
+```
+Rule2  ON System#Boot DO Bh1750MTime1 254 ENDON
+Rule2 1
+```
+
+
