@@ -12,6 +12,14 @@ For this I have running a pine64 Board (you can use a raspberry pi) with Linux w
 - Wifi
 - MQTT Network Communication
 
+## Images / Prototypes
+
+| Stage |  |
+| ------ | ----------- |
+| Prototype 1   | ![](https://github.com/artifactdev/iot-mqtt-homekit-projects/raw/main/sensorbox/assets/prototyp-1.jpg) |
+| Prototype 2 | ![](https://github.com/artifactdev/iot-mqtt-homekit-projects/raw/main/sensorbox/assets/prototyp-2.jpg) |
+| Prototype 3 / Final | ![](https://github.com/artifactdev/iot-mqtt-homekit-projects/raw/main/sensorbox/assets/sensorbox-final.jpg) |
+
 ----
 ## Parts
 
@@ -22,6 +30,7 @@ For this I have running a pine64 Board (you can use a raspberry pi) with Linux w
 - Motion Sensor AM312 ([Amazon-Link](https://www.amazon.de/gp/product/B08931TTTN))
 - Temperature/Humanity Sensor AM3202/DHT22 ([Amazon-Link](https://www.amazon.de/gp/product/B08931TTTN))
 - Jumper cables / cables ([Amazon-Link](https://www.amazon.de/AZDelivery-Jumper-Arduino-Raspberry-Breadboard/dp/B074P726ZR/))
+- Power Supply 5V Micro USB
 
 ### Optional
 - Holegrid Board to solder on ([Amazon-Link](https://www.amazon.de/gp/product/B0899K85BS/))
