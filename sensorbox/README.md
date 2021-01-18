@@ -202,3 +202,9 @@ Once the plugin is installed this is how the configurations accesories section h
 > we need to setup the sensors seperately for homekit.
 
 Once added you need to restart homebridge and if the sensorbox is running it should appear in homebridge and therefore in HomeKit aswell.
+
+This is how the end result should look like in HomeKit:
+
+![](https://github.com/artifactdev/iot-mqtt-homekit-projects/raw/main/sensorbox/assets/homekit-sensors.jpg)
+
+![](https://github.com/artifactdev/iot-mqtt-homekit-projects/raw/main/sensorbox/assets/homekit-sensors-2.jpg)
