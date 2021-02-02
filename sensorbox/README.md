@@ -20,7 +20,8 @@ The costs for the required electronic parts of one box are under 10 €/$.
 | ------ | ----------- |
 | Prototype 1   | ![](https://github.com/artifactdev/iot-mqtt-homekit-projects/raw/main/sensorbox/assets/prototyp-1.jpg) |
 | Prototype 2 | ![](https://github.com/artifactdev/iot-mqtt-homekit-projects/raw/main/sensorbox/assets/prototyp-2.jpg) |
-| Prototype 3 / Final | ![](https://github.com/artifactdev/iot-mqtt-homekit-projects/raw/main/sensorbox/assets/sensorbox-final.jpg) |
+| Prototype 3 / Final Prototype | ![](https://github.com/artifactdev/iot-mqtt-homekit-projects/raw/main/sensorbox/assets/prototyp-3.jpg) |
+| Sensorbox v2 Final | ![](https://github.com/artifactdev/iot-mqtt-homekit-projects/raw/main/sensorbox/assets/sensorbox-v1.jpg) |
 
 ----
 ## Parts
@@ -39,6 +40,7 @@ The costs for the required electronic parts of one box are under 10 €/$.
 - Cases
     - [Plastic Housing Electronic Enclosure Case 81 * 41 * 20 mm](https://www.amazon.de/gp/product/B08F3NJ3Y2/) (A lot of work needed to get everything/no clean solution possible)
     - [LaDicha 75 x 54 x 27mm DIY](https://www.amazon.de/gp/product/B07CKRDR7W/)
+    - 3D Printed DIY
 
 ---
 ## Scheme
