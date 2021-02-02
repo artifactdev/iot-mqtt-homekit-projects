@@ -5,5 +5,5 @@ In this repository, you can find documentations for my small homekit / mqtt / ta
 
 | Project |  |
 | ------ | ----------- |
-| [Homekit ESP8266 Sensorbox](https://github.com/artifactdev/iot-mqtt-homekit-projects/tree/main/sensorbox) | [![](https://github.com/artifactdev/iot-mqtt-homekit-projects/raw/main/sensorbox/assets/sensorbox-final.jpg)](https://github.com/artifactdev/iot-mqtt-homekit-projects/tree/main/sensorbox) |
+| [Homekit ESP8266 Sensorbox](https://github.com/artifactdev/iot-mqtt-homekit-projects/tree/main/sensorbox) | [![](https://github.com/artifactdev/iot-mqtt-homekit-projects/raw/main/sensorbox/assets/sensorbox_v1.jpg)](https://github.com/artifactdev/iot-mqtt-homekit-projects/tree/main/sensorbox) |
 
