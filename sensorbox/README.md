@@ -110,7 +110,7 @@ We need to setup some rules to get the sensors working and communicating like we
 ```
 SwitchMode1 14
 SwitchTopic 0
-Rule1 on Switch1#state=1 do publish  %topic%/stat/PIR1 ON endon on Switch1#state=0 do Publish  %topic%/stat/PIR1 OFF endon
+Rule1 on Switch1#state=1 do Backlog Publish %topic%/stat/PIR1 ON; RuleTimer1 120 endon on Rules#Timer=1 do Publish %topic%/stat/PIR1 OFF endon
 Rule1 1
 ```
 
